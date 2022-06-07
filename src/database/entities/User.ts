@@ -4,6 +4,7 @@ import {
   Column,
   BaseEntity,
   CreateDateColumn,
+  UpdateDateColumn,
 } from "typeorm";
 
 import { IsEmail } from "class-validator";
@@ -23,6 +24,6 @@ export class User extends BaseEntity {
   @CreateDateColumn()
   public createdAt!: Date;
 
-  @CreateDateColumn()
+  @UpdateDateColumn()
   public updatedAt!: Date;
 }

@@ -6,6 +6,7 @@ import {
   Typography,
   Stack,
   Divider,
+  TextField,
 } from "@mui/material";
 import { styled } from "@mui/system";
 import type { GetServerSideProps, NextPage } from "next";
@@ -19,7 +20,7 @@ const CoolerButton = styled(Button)(
     color: ${theme.palette.text.secondary};
     background-color: ${theme.palette.warning.light};
   }
-`,
+`
 );
 
 const Home: NextPage = () => {
@@ -38,6 +39,11 @@ const Home: NextPage = () => {
       <Typography variant="h2" mt={4} mb={8}>
         Boilerplate
       </Typography>
+      <TextField
+        placeholder="hello@email.com"
+        name="email"
+        label="E-Mail Address"
+      />
       <Stack
         spacing={4}
         divider={<Divider sx={{ width: "100%" }} />}
