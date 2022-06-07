@@ -10,7 +10,7 @@ const options = {
     username: process.env.DB_USERNAME || "postgres",
     password: process.env.DB_PASSWORD || "",
     database: process.env.DB_DATABASE_NAME || "postgres",
-    synchronize: process.env.NODE_ENV !== "production",
+    synchronize: true, //process.env.NODE_ENV !== "production",
 
     entities: [
       User, // etc...
@@ -30,7 +30,7 @@ const entitiesChanged = (prevEntities: any[], newEntities: any[]): boolean => {
 
 const updateConnectionEntities = async (
   connection: Connection,
-  entities: any[],
+  entities: any[]
 ) => {
   // @ts-ignore
   if (!entitiesChanged(connection.options.entities, entities)) return;
@@ -47,7 +47,7 @@ const updateConnectionEntities = async (
 };
 
 export const ensureConnection = async (
-  name: string = "default",
+  name: string = "default"
 ): Promise<Connection> => {
   const connectionManager = getConnectionManager();
 
